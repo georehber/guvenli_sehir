@@ -1,0 +1,1022 @@
+/* =========================================================
+    GLOBAL AYARLAR — Modern GIS UI
+========================================================= */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+
+html, body {
+  margin: 0;
+  padding: 0;
+  height: 100%; /* Sayfanın en az 100% yüksekliğinde olmasını sağlar */
+  font-family: "Inter", sans-serif;
+  background: #F7F7F7;           /* modern hafif gri */
+  color: #1A1A1A;                /* doğal koyu gri */
+  display: flex;
+  flex-direction: column; /* İçeriği dikey sıralar (header, main, footer) */
+}
+
+
+/* =========================================================
+    HEADER — (global-anim.css ile uyumlu temel stiller)
+========================================================= */
+header {
+  background: #FFFFFF;
+  color: #1A1A1A;
+  padding: 18px 40px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: 1px solid #E4E4E4;
+  box-shadow: 0 1px 4px rgba(0,0,0,0.06);
+}
+
+header .logo h1 {
+  margin: 0;
+  font-size: 24px;
+  font-weight: 700;
+  color: #A38441; /* markanın altın tonu */
+  letter-spacing: 0.5px;
+}
+
+header .logo span {
+  font-size: 13px;
+  color: #000000;
+}
+
+/* global-anim.css bu stilleri alıp geliştirecek */
+header nav a {
+  margin: 0 16px;
+  font-size: 15px;
+  text-decoration: none;
+  color: #1A1A1A;
+  font-weight: 500;
+  transition: color 0.25s;
+}
+
+/* Animasyon çalışmazsa devreye girecek basit hover */
+header nav a:hover {
+  color: #A38441;
+}
+
+
+/* =========================================================
+    FOOTER
+========================================================= */
+footer {
+  text-align: center;
+  padding: 24px;
+  background: #FFFFFF;
+  color: #000000;
+  font-size: 14px;
+  border-top: 1px solid #E4E4E4;
+  /* margin-top: 60px; (Kaldırıldı, flex:1 ile yönetilecek) */
+}
+
+
+/* =========================================================
+    İÇERİK ESNETME (FOOTER AŞAĞI İTME KURALI)
+========================================================= */
+/* Bu kural, ana içerik sarmalayıcısının mevcut tüm boş alanı
+   doldurmasını sağlar ve footer'ı sayfanın en altına iter. */
+.content,           /* index.html */
+.content--projects, /* hizmetler.html, tematik-haritalar.html, lokasyon-haritalari.html */
+.content--portfolio, /* portfolyom.html */
+.content--about,     /* hakkimizda.html */
+.content--antik,     /* antik-kentler.html */
+.contact            /* iletisim.html (Bu sınıfı ekledik) */
+{
+  flex: 1;
+}
+
+
+/* =========================================================
+    INDEX — Ana Sayfa Modern
+========================================================= */
+.content {
+  /* flex: 1; (Yukarıda eklendi) */
+  max-width: 900px;
+  margin: 100px auto;
+  padding: 0 20px;
+}
+
+.content h2 {
+  font-size: 34px;
+  margin-bottom: 12px;
+  font-weight: 700;
+  color: #1A1A1A;
+}
+
+.text {
+  font-size: 17px;
+  margin-bottom: 60px;
+  line-height: 1.6;
+  color: #333;
+}
+
+
+/* =========================================================
+    PROJE / HİZMETLER GRID YAPISI (hizmetler.html)
+========================================================= */
+/* HİZMETLER GİRİŞİ — Portfolyom ile uyumlu hale getirildi */
+.content--projects h2 {
+  font-size: 34px;
+  margin-bottom: 12px;
+  font-weight: 700;
+  color: #1A1A1A;
+}
+
+.content--projects .desc {
+  max-width: 740px;
+  margin: 0 auto 40px auto;
+  font-size: 17px;
+  line-height: 1.6;
+  color: #555;
+}
+
+.content--projects {
+  /* flex: 1; (Yukarıda eklendi) */
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 80px 20px;
+  text-align: center;
+}
+
+/* hizmetler.html, tematik-haritalar.html, lokasyon-haritalari.html için ortak açıklama */
+.desc {
+  max-width: 700px;
+  margin: 0 auto 40px auto;
+  font-size: 17px;
+  color: #555;
+  line-height: 1.5;
+}
+
+
+.project-grid {
+  margin-top: 40px;
+  display: grid;
+  width: 100%;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 28px;
+}
+
+/* 'hizmetler.html' deki 'a' etiketi için */
+.service-card-link {
+  text-decoration: none;
+  display: block;   /* grid item gibi davransın */
+  height: 100%;     /* satırın yüksekliğini alsın */
+}
+.service-card-link .project-card {
+  height: 100%;     /* beyaz kart da satırı doldursun */
+}
+
+
+.project-card {
+  background: #FFFFFF;
+  border: 1px solid #E4E4E4;
+  border-radius: 10px;
+  padding: 26px;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+  transition: 0.25s;
+  text-align: left; /* Kart içeriğini sola hizala */
+  color: #1A1A1A;  /* 'a' etiketi içindeyse rengi düzelt */
+  display: flex;            /* EKLENDİ */
+  flex-direction: column;   /* EKLENDİ */
+}
+.project-card .construction {
+  margin-top: auto;   /* EKLE BUNU */
+}
+
+.project-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 8px 20px rgba(0,0,0,0.11);
+}
+
+.focus-card {
+  box-sizing: border-box;
+}
+
+
+/* =========================================================
+    MODERN KART TASARIMI (hizmetler.html)
+========================================================= */
+.project-card h3 {
+  margin-top: 0;
+  font-size: 20px;
+  color: #A38441;
+}
+
+.project-card p {
+  font-size: 15px;
+  line-height: 1.5;
+  color: #444;
+}
+.project-card .construction {
+  display: inline-block !important;
+  width: auto !important;
+  align-self: flex-start; /* sola çek, genişlemesin */
+}
+
+.construction {
+  margin-top: 15px;
+  padding: 7px 16px;
+  background: #A38441;
+  color: #fff;
+  font-weight: 600;
+  border-radius: 999px;
+  font-size: 13px;
+
+  display: inline-block !important; /* sadece yazı kadar olsun */
+  width: auto !important;           /* yatayda genişlemesin */
+}
+
+
+/* =========================================================
+    PORTFOLYO & HAKKIMIZDA (Hero Başlık)
+========================================================= */
+.hero {
+  padding: 60px 40px 20px 40px;
+  text-align: center;
+}
+
+.hero h2 {
+  font-size: 34px;
+  margin: 0 0 10px 0;
+}
+
+.hero .lead {
+  max-width: 740px;
+  margin: 0 auto;
+  font-size: 17px;
+  color: #555;
+  line-height: 1.6;
+}
+
+/* =========================================================
+    PORTFOLYO (portfolyom.html)
+========================================================= */
+.content--portfolio {
+  /* flex: 1; (Yukarıda eklendi) */
+  padding: 40px;
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+.portfolio-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 28px;
+  justify-items: center;
+}
+
+.portfolio-card {
+  border: 1px solid #E4E4E4;
+  border-radius: 10px;
+  padding: 24px;
+  max-width: 360px;
+  background: #FFFFFF;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.04);
+  transition: 0.25s;
+  text-align: left; /* Hizalama */
+}
+
+.portfolio-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+}
+
+
+/* =========================================================
+    HAKKIMIZDA (hakkimizda.html)
+========================================================= */
+.content--about {
+  /* flex: 1; (Yukarıda eklendi) */
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 40px;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 28px;
+}
+
+.about-card {
+  background: #FFFFFF;
+  border: 1px solid #E4E4E4;
+  border-radius: 10px;
+  padding: 26px;
+  transition: 0.25s;
+  text-align: left;
+  max-width: 360px;
+
+  display: flex;             /* Yeni */
+  flex-direction: column;    /* Yeni */
+}
+
+/* Hakkımızda — Kart Hover  */
+.about-card:hover {
+  transform: translateY(-6px);
+  border-color: #A38441;
+  box-shadow: 0 10px 24px rgba(0,0,0,0.12); 
+}
+
+
+/* HAKKIMIZDA & PORTFOLYO NOTU — ortalı */
+.note {
+  max-width: 760px;
+  margin: 30px auto 40px auto !important;
+  text-align: center !important;
+  background: #fffdf0;
+  border: 1px dashed #a38441;
+  border-radius: 10px;
+  padding: 14px 16px;
+  display: flex;
+  justify-content: center !important;
+  align-items: center !important;
+}
+
+.note .dot {
+  display: none; /* nokta kaldırıldı istersen açarız */
+}
+
+.note p {
+  margin: 0;
+  font-size: 15px;
+  text-align: center !important;
+}
+
+.social-buttons {
+  margin-top: auto !important;
+  display: flex;
+  gap: 12px;
+}
+
+
+/* =========================================================
+    İLETİŞİM (iletisim.html)
+========================================================= */
+.contact {
+  /* flex: 1; (Yukarıda eklendi) */
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 80px 20px;
+  text-align: center;
+}
+
+/* .contact h2, .desc vb. stiller zaten yukarıda tanımlı */
+
+.contact-box {
+  display: flex !important;
+  flex-direction: row !important;
+  justify-content: center !important;
+  align-items: center !important;
+  gap: 80px !important;
+  flex-wrap: nowrap !important;
+}
+
+.mail a {
+  color: #a38441;
+  font-size: 18px;
+  text-decoration: none;
+  font-weight: 600;
+}
+
+.mail a:hover {
+  text-decoration: underline;
+}
+
+.wp-btn {
+  display: inline-block !important;
+  background: #25D366;
+  color: white !important;
+  padding: 12px 22px;
+  border-radius: 10px;
+  text-decoration: none !important;
+  font-weight: 600;
+  transition: 0.2s;
+  font-size: 16px;
+}
+
+.wp-btn:hover {
+  background: #1EBB57;
+}
+
+/* =========================================================
+    INSTAGRAM POPUP (iletisim.html) — DÜZELTİLMİŞ
+========================================================= */
+
+/* 1. Tetikleyici ve etiketini saran kutu (Konumlandırma) */
+.trigger-wrapper {
+  position: fixed;
+  right: 25px;
+  bottom: 25px;
+  z-index: 10000; /* En üstte */
+  display: flex;
+  flex-direction: column; 
+  align-items: center;
+  gap: 10px; /* Etiketle buton arası boşluk */
+}
+
+/* 2. Tetikleyici butondan önce çıkan etiket */
+.trigger-label {
+  background: #FFFFFF;
+  color: #1A1A1A;
+  padding: 6px 14px;
+  border-radius: 20px;
+  font-size: 14px;
+  font-weight: 600;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+  border: 1px solid #E4E4E4;
+  white-space: nowrap;
+}
+
+/* 3. Sağ alt köşedeki tetikleme butonu */
+.popup-trigger {
+  background: radial-gradient(circle at 30% 107%, #fdf497 0%, #fdf497 5%, #fd5949 45%, #d6249f 60%, #285AEB 90%);
+  color: white;
+  border: none;
+  padding: 14px;
+  border-radius: 50%;
+  font-size: 22px;
+  cursor: pointer;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.25);
+  transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.popup-trigger:hover {
+  transform: scale(1.1);
+  box-shadow: 0 6px 15px rgba(0,0,0,0.35);
+}
+
+.popup-trigger i.fab.fa-instagram {
+  font-size: 24px;
+}
+
+
+/* 4. Popup kutusu (Animasyon ayarları) */
+.wp-popup {
+  position: fixed;
+  right: 20px;
+  bottom: 90px;
+  width: 320px;
+  background: #FFFFFF;
+  border: none;
+  border-radius: 16px;
+  padding: 25px;
+  z-index: 9999; 
+  box-shadow: 0 10px 30px rgba(0,0,0,0.15), 0 0 0 1px rgba(0,0,0,0.05);
+  box-sizing: border-box; 
+  
+  /* JavaScript'in çalışması için gerekli */
+  display: none; /* Başlangıçta gizli */
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.3s ease-out, transform 0.3s ease-out;
+}
+
+/* 5. JS'nin tetiklediği 'show' sınıfı */
+.wp-popup.show {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.wp-popup h3 {
+  margin-top: 0;
+  color: #1A1A1A;
+  font-weight: 700;
+  font-size: 22px;
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.close {
+  position: absolute;
+  right: 15px;
+  top: 15px;
+  font-size: 24px;
+  color: #777;
+  cursor: pointer;
+  transition: color 0.2s ease;
+}
+.close:hover { color: #1A1A1A; }
+
+.popup-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  background: radial-gradient(circle at 30% 107%, #fdf497 0%, #fdf497 5%, #fd5949 45%, #d6249f 60%, #285AEB 90%);
+  color: white !important;
+  padding: 12px 20px;
+  border-radius: 12px;
+  text-decoration: none !important;
+  font-weight: 600;
+  font-size: 16px;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  width: 100%;
+  box-sizing: border-box;
+}
+.popup-btn:hover { transform: translateY(-2px); box-shadow: 0 4px 12px rgba(0,0,0,0.2); }
+.popup-btn i.fab.fa-instagram { font-size: 20px; }
+
+
+/* =========================================================
+    ANTİK KENTLER SAYFASI (antik-kentler.html)
+========================================================= */
+.content--antik {
+  display: block; /* Flex KAPALI */
+}
+
+.intro-mini {
+  font-size: 16px;
+  line-height: 1.5;
+  margin: 16px 40px;
+  text-align: left;
+  color: #555;
+}
+
+.map-box {
+  width: 100%;
+  height: calc(100vh - 160px); /* HARİTA TAM EKRAN İDEAL YÜKSEKLİK */
+  border-top: 1px solid #E4E4E4;
+  border-bottom: 1px solid #E4E4E4;
+}
+
+.map-box iframe {
+  width: 100%;
+  height: 100%;
+  border: none;
+}
+
+
+
+/* =========================================================
+    TEMATİK HARİTA KARTLARI (tematik-haritalar.html)
+========================================================= */
+.tematik-grid {
+  max-width: 1100px;
+  margin: 40px auto 80px auto;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 26px;
+}
+
+.tematik-card {
+  text-decoration: none;
+  background: #FFFFFF;
+  border: 1px solid #E4E4E4;
+  padding: 24px;
+  border-radius: 10px;
+  color: #1A1A1A;
+  transition: 0.25s;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.04);
+  text-align: left; /* Hizalama */
+}
+
+.tematik-card:hover {
+  transform: translateY(-6px);
+  border-color: #A38441;
+  box-shadow: 0 10px 24px rgba(0,0,0,0.12);
+}
+
+.tematik-card h3 {
+  margin: 0 0 10px 0;
+  font-size: 19px;
+  color: #A38441;
+}
+
+
+/* =========================================================
+    ÜRÜN KATALOĞU (lokasyon-haritalari.html)
+========================================================= */
+.urun-grid {
+  max-width: 1100px;
+  margin: 40px auto 80px auto;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 30px;
+}
+
+.urun-card {
+  background: #FFFFFF;
+  border: 1px solid #E4E4E4;
+  border-radius: 10px;
+  padding: 18px;
+  text-align: center; /* Ürün kartları ortalı */
+  transition: 0.25s;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+}
+
+.urun-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 10px 24px rgba(0,0,0,0.1);
+}
+
+.urun-img {
+  width: 100%;
+  border-radius: 10px;
+  margin-bottom: 12px;
+  object-fit: contain;
+  background: #FAFAFA;
+  padding: 4px;
+  cursor: pointer; /* Büyütülebilir olduğunu belirtir */
+}
+
+.urun-kod {
+  font-size: 13px;
+  opacity: 0.6;
+}
+
+.urun-fiyat {
+  margin: 6px 0 14px 0;
+  font-size: 18px;
+  font-weight: 600;
+}
+
+.urun-btn {
+  background: #A38441;
+  color: #fff;
+  padding: 10px 18px;
+  border-radius: 8px;
+  border: none;
+  cursor: pointer;
+  font-weight: 600;
+  transition: 0.2s;
+}
+
+.urun-btn:hover {
+  background: #8f7138;
+}
+
+
+/* =========================================================
+    ÜRÜN POPUP (lokasyon-haritalari.html)
+========================================================= */
+.popup-overlay {
+  position: fixed;
+  display: none; /* JS ile açılır */
+  align-items: center;
+  justify-content: center;
+  background: rgba(0,0,0,0.35);
+  top: 0; left: 0; right: 0; bottom: 0;
+  z-index: 999;
+}
+
+.popup {
+  background: #FFFFFF;
+  border: 1px solid #E4E4E4;
+  border-radius: 12px;
+  width: 380px;
+  padding: 26px;
+  position: relative;
+  box-shadow: 0 10px 28px rgba(0,0,0,0.25);
+  max-height: 90vh; /* Ekran taşmasını engeller */
+  overflow-y: auto; /* Gerekirse kaydırma çubuğu çıkar */
+}
+
+.popup-close {
+  position: absolute;
+  right: 14px;
+  top: 10px;
+  cursor: pointer;
+  font-size: 22px;
+  color: #777;
+}
+
+.popup-kod {
+  opacity: 0.7;
+  font-size: 14px;
+}
+
+.popup-fiyat {
+  font-weight: 700;
+  margin-bottom: 20px;
+  font-size: 18px;
+}
+
+.form-group {
+  margin-bottom: 18px;
+  text-align: left;
+}
+
+.form-group label {
+  font-weight: 600;
+  font-size: 14px;
+}
+
+.form-group input,
+.form-group textarea,
+.form-group select {
+  width: 100%;
+  padding: 9px;
+  border: 1px solid #D5D5D5;
+  border-radius: 8px;
+  margin-top: 4px;
+  font-family: inherit;
+  background: #FAFAFA;
+  box-sizing: border-box; /* Padding'in genişliği bozmamasını sağlar */
+}
+
+.siparis-btn {
+  width: 100%;
+  padding: 12px;
+  background: #25D366;
+  color: white;
+  border: none;
+  border-radius: 10px;
+  font-size: 16px;
+  cursor: pointer;
+  font-weight: 600;
+}
+
+.siparis-btn:hover {
+  background: #1EBB57;
+}
+
+/* Resim popup (lokasyon-haritalari.html) */
+.img-popup-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,0.75);
+  display: none; /* JS ile açılır */
+  justify-content: center;
+  align-items: center;
+  z-index: 2000;
+}
+
+.img-popup-content {
+  max-width: 90%;
+  max-height: 90%;
+  border-radius: 14px;
+  border: 3px solid #fff;
+  box-shadow: 0 0 20px rgba(0,0,0,0.5);
+}
+
+.img-popup-close {
+  position: fixed;
+  top: 20px;
+  right: 30px;
+  font-size: 40px;
+  color: white;
+  cursor: pointer;
+  z-index: 2001;
+}
+
+/* ==========================
+   ANASAYFA — KEŞİF KARTLARI
+========================== */
+
+.home-explore {
+  max-width: 1100px;
+  margin: 40px auto 80px auto;
+  padding: 0 20px;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 26px;
+}
+
+.explore-card {
+  background: #FFFFFF;
+  border: 1px solid #E4E4E4;
+  border-radius: 12px;
+  padding: 24px;
+  text-decoration: none;
+  color: #1A1A1A;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.04);
+  transition: 0.25s;
+  display: flex;
+  flex-direction: column;
+}
+
+.explore-card:hover {
+  transform: translateY(-6px);
+  border-color: #A38441;
+  box-shadow: 0 12px 28px rgba(0,0,0,0.12);
+}
+
+.explore-card h3 {
+  margin: 0 0 10px 0;
+  font-size: 19px;
+  color: #A38441;
+}
+
+.explore-card p {
+  flex: 1;
+  font-size: 15px;
+  color: #444;
+}
+
+.explore-card .go {
+  font-weight: 600;
+  color: #A38441;
+  margin-top: 14px;
+}
+
+/* ============================
+   STORYMAPS SINIRSIZ UZAYAN IFRAME
+============================ */
+
+.storymaps-full {
+  width: 100%;
+  padding: 0;
+  margin: 0;
+}
+
+.storymaps-frame {
+  width: 100%;
+  border-top: 2px solid #E4E4E4;
+  border-bottom: 2px solid #E4E4E4;
+  box-sizing: border-box;
+}
+
+.storymaps-frame iframe {
+  width: 100%;
+  height: auto;
+  min-height: 100vh;
+  border: none;
+}
+
+.portfolio-card-link {
+  text-decoration: none;
+  color: inherit;
+  display: block;
+}
+
+.portfolio-card-link .portfolio-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+}
+/* Kart tamamen tıklanabilir olsun */
+.clickable-card {
+  position: relative;
+}
+
+/* Görünmez overlay link */
+.full-card-link {
+  position: absolute;
+  inset: 0;          /* Kartın tamamını kaplar */
+  z-index: 2;        /* Kart içeriğinin ÜSTÜNDE */
+  text-decoration: none;
+}
+
+/* İncele yazısı overlay’in üzerinde kalsın */
+.incele-yazi {
+  position: relative;
+  z-index: 3;        /* Overlay linkten bile yukarıda */
+  color: #A38441 !important;
+  font-weight: 600;
+  text-decoration: none;
+  margin-top: 10px;
+  display: inline-block;
+}
+
+/* =========================================================
+   İLETİŞİM — Tam Orta Hizalı Yeni Düzen
+========================================================= */
+
+.contact-box-new {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 80px;            /* iki kutu arası dengeli boşluk */
+  margin-top: 50px;
+  flex-wrap: wrap;
+  text-align: center;
+}
+
+.contact-section {
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* içerik tam ortaya */
+}
+
+.contact-section h3 {
+  font-size: 20px;
+  font-weight: 700;
+  margin-bottom: 6px;
+}
+
+.contact-section p {
+  margin: 2px 0 16px 0;
+  font-size: 15px;
+  color: #555;
+}
+
+/* Yuvarlak butonlar */
+.contact-big-btn {
+  width: 70px;
+  height: 70px;
+  border-radius: 50%;
+  border: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 32px;
+  cursor: pointer;
+  color: white;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.25);
+  transition: 0.25s ease;
+}
+
+.contact-big-btn:hover {
+  transform: scale(1.1);
+  box-shadow: 0 6px 15px rgba(0,0,0,0.35);
+}
+
+/* Renkler */
+.contact-big-btn.mail {
+  background: #A38441;
+}
+
+.contact-big-btn.whatsapp {
+  background: #25D366;
+}
+
+/* Mobil düzen */
+@media (max-width: 768px) {
+  .contact-box-new {
+    gap: 40px;
+    margin-top: 40px;
+  }
+}
+/* StoryMaps kartları diğer sayfalardaki gibi yan yana olsun */
+.storymaps-grid .tematik-card {
+  width: 100%;
+  max-width: 350px; /* kart genişliğini sınırladık */
+  margin: 0 auto;
+  display: block;
+}
+
+.download-btn {
+  display: inline-block;
+  margin-top: 12px;
+  padding: 12px 20px;
+  background: #A38441;
+  color: #fff;
+  text-decoration: none;
+  font-weight: 600;
+  border-radius: 8px;
+  transition: 0.25s ease;
+}
+
+.download-btn:hover {
+  background: #8c6f38;
+}
+
+.guide-card {
+  background: #FFF7E8;
+  padding: 24px;
+  border-radius: 14px;
+  margin-top: 40px;
+  border: 1px solid #E5D6B8;
+}
+
+.guide-card h3 {
+  margin-top: 0;
+  margin-bottom: 18px;
+  font-size: 20px;
+  font-weight: 600;
+  color: #A38441;
+}
+
+.guide-step {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  margin-bottom: 14px;
+}
+
+.guide-step span {
+  display: inline-block;
+  width: 26px;
+  height: 26px;
+  background: #A38441;
+  color: white;
+  border-radius: 50%;
+  text-align: center;
+  line-height: 26px;
+  font-weight: 600;
+  font-size: 14px;
+  flex-shrink: 0;
+}
+
+.guide-step p {
+  margin: 0;
+  font-size: 15px;
+  color: #333;
+  line-height: 1.4;
+}
+
+.guide-result {
+  margin-top: 18px;
+  background: white;
+  padding: 12px 16px;
+  border-radius: 8px;
+  border: 1px solid #EAEAEA;
+  font-size: 15px;
+  color: #444;
+  line-height: 1.4;
+}

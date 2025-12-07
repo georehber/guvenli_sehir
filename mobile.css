@@ -1,0 +1,221 @@
+/* =======================================
+   1) GENEL MOBİL — tüm telefonlar
+   max-width: 480px
+======================================= */
+@media (max-width: 480px) {
+
+  /* HEADER */
+  header {
+    padding: 14px 20px;
+    flex-direction: column;
+    gap: 6px;
+  }
+
+  header nav {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px 12px;
+  }
+
+  header nav a {
+    font-size: 14px;
+    padding: 5px 0;
+  }
+
+  /* HERO */
+  .hero {
+    padding: 40px 20px 12px;
+  }
+
+  .hero h2 {
+    font-size: 26px;
+  }
+
+  .hero .lead {
+    font-size: 15px;
+    line-height: 1.45;
+  }
+
+  /* GRID KARTLAR */
+  .home-explore,
+  .portfolio-grid,
+  .project-grid,
+  .tematik-grid,
+  .urun-grid {
+    grid-template-columns: 1fr;
+    padding: 0 18px;
+    gap: 20px;
+  }
+
+  .explore-card,
+  .portfolio-card,
+  .project-card,
+  .tematik-card,
+  .urun-card {
+    padding: 18px;
+  }
+
+  /* ANTİK KENTLER */
+  .intro-mini {
+    font-size: 14px;
+    margin: 12px 18px;
+  }
+
+  .map-box {
+    height: calc(100vh - 150px);
+  }
+
+  /* POPUP */
+  .popup {
+    width: 92%;
+    padding: 20px;
+  }
+
+  /* İLETİŞİM */
+  .contact-box {
+    flex-direction: column !important;
+    gap: 26px !important;
+  }
+
+  footer {
+    padding: 18px;
+    font-size: 13px;
+  }
+}
+
+/* =======================================
+   2) ÖZEL CİHAZ: iPhone 13 
+   width: 390px • height: 844px
+   — Bu KISIM sadece iPhone 13'te çalışır —
+======================================= */
+@media (width: 390px) and (height: 844px) {
+
+  /* iPhone 13'te header biraz daha aşağı kayıyor
+     onu kompaktlaştırıyoruz */
+  header {
+    padding: 10px 16px;
+    gap: 4px;
+  }
+
+  header nav a {
+    font-size: 13.5px;
+  }
+
+  /* Hero başlık daha dar yapılıyor */
+  .hero h2 {
+    font-size: 24px;
+  }
+
+  /* Anasayfa kartları */
+  .explore-card {
+    padding: 16px;
+  }
+
+  /* Portfolyo, hizmetler, tematik — daha sıkı */
+  .portfolio-card,
+  .project-card,
+  .tematik-card,
+  .urun-card {
+    padding: 16px;
+  }
+
+  /* Popup daha dar */
+  .popup {
+    width: 88%;
+    padding: 18px;
+  }
+
+  /* Antik Kentler haritası iPhone 13 ekranına tam otursun */
+  .map-box {
+    height: calc(100vh - 130px);
+  }
+
+  /* StoryMaps biraz daha kısa */
+  .storymaps-frame iframe {
+    min-height: 73vh;
+  }
+
+  /* Footer küçük */
+  footer {
+    font-size: 12px;
+  }
+}
+
+/* =========================================================
+   HAKKIMIZDA — Mobil Düzen (max-width: 768px)
+========================================================= */
+@media (max-width: 768px) {
+
+  /* GENEL */
+  .content--about {
+    grid-template-columns: 1fr !important; /* Tek sütun */
+    padding: 20px !important;
+    gap: 22px !important;
+  }
+
+  /* HERO */
+  .hero {
+    padding: 40px 20px 10px 20px !important;
+  }
+
+  .hero h2 {
+    font-size: 26px !important;
+  }
+
+  .hero .lead {
+    font-size: 15px !important;
+    line-height: 1.5 !important;
+    padding: 0 4px !important;
+  }
+
+  /* KARTLAR */
+  .about-card {
+    max-width: 100% !important;
+    padding: 20px !important;
+  }
+
+  .about-card img {
+    border-radius: 8px !important;
+    margin-bottom: 12px !important;
+  }
+
+  .about-card h3 {
+    font-size: 18px !important;
+  }
+
+  .about-card p {
+    font-size: 14px !important;
+    line-height: 1.45 !important;
+  }
+
+  /* Sosyal ikonlar */
+  .social-buttons {
+    gap: 10px !important;
+  }
+
+  .social-buttons a {
+    width: 34px !important;
+    height: 34px !important;
+    font-size: 16px !important;
+  }
+
+  /* HEADER — Mobil menü kendini sıkıştırmasın */
+  header {
+    padding: 14px 20px !important;
+    flex-direction: column !important;
+    gap: 12px !important;
+  }
+
+  header nav a {
+    margin: 0 8px !important;
+    font-size: 14px !important;
+  }
+
+  header .logo h1 {
+    font-size: 20px !important;
+  }
+
+  header .logo span {
+    font-size: 11px !important;
+  }
+}
